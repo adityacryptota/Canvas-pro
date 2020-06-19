@@ -32,7 +32,7 @@ function Circle(x, y, dx, dy, radius) {
     this.dy = dy;
     this.radius = radius;
     this.minRadius = radius;
-    this.maxRadius = 60;
+    this.maxRadius = 75;
     this.colorOfCircle = colorsArray[Math.floor(Math.random() * 5)];
 
     this.draw = () => {
@@ -73,8 +73,8 @@ while(numberOfCircle < 1000){
 
     let x = Math.random() * ((innerWidth * dpi) - radius * 2) + radius; 
     let y = Math.random() * ((innerHeight * dpi) - radius * 2) + radius;
-    let dx = (Math.random() - 0.5) * 5; 
-    let dy = (Math.random() - 0.5) * 5; 
+    let dx = (Math.random() - 0.5) * 3; 
+    let dy = (Math.random() - 0.5) * 3; 
     let circle = new Circle(x, y, dx, dy, radius);
 
     arrayOfCircles.push(circle);
