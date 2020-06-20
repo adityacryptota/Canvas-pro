@@ -62,19 +62,13 @@ function Circle(x, y, dx, dy, radius) {
             if(mouse.x - this.x < 0 && mouse.y - this.y < 0){
                 this.x = this.x - 1;
                 this.y = this.y - 1;
-            }
-
-            if(mouse.x - this.x > 0 && mouse.y - this.y > 0){
+            }else if(mouse.x - this.x > 0 && mouse.y - this.y > 0){
                 this.x = this.x + 1;
                 this.y = this.y + 1;
-            }
-
-            if(mouse.x - this.x > 0 && mouse.y - this.y < 0){
+            }else if(mouse.x - this.x > 0 && mouse.y - this.y < 0){
                 this.x = this.x + 1;
                 this.y = this.y - 1;
-            }
-
-            if(mouse.x - this.x < 0 && mouse.y - this.y > 0){
+            }else if(mouse.x - this.x < 0 && mouse.y - this.y > 0){
                 this.x = this.x - 1;
                 this.y = this.y + 1;
             }
