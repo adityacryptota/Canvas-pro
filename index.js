@@ -53,10 +53,32 @@ function Circle(x, y, dx, dy, radius) {
             this.dy = -this.dy;
         }
 
-        if((mouse.x * dpi) - this.x < (30 * dpi) && (mouse.x * dpi) - this.x > (-30 * dpi) && (mouse.y * dpi) - this.y < (30 * dpi) && (mouse.y * dpi) - this.y > (-30 * dpi)){
+        if(mouse.x - this.x < 60 && mouse.x - this.x > -60 && mouse.y - this.y < 60 && mouse.y - this.y > -60){
             if(this.radius < this.maxRadius){
                 this.radius += 1;
             }
+
+            // Reduce the distance between mouse and these particles.
+            if(mouse.x - this.x < 0 && mouse.y - this.y < 0){
+                this.x = this.x - 1;
+                this.y = this.y - 1;
+            }
+
+            if(mouse.x - this.x > 0 && mouse.y - this.y > 0){
+                this.x = this.x + 1;
+                this.y = this.y + 1;
+            }
+
+            if(mouse.x - this.x > 0 && mouse.y - this.y < 0){
+                this.x = this.x + 1;
+                this.y = this.y - 1;
+            }
+
+            if(mouse.x - this.x < 0 && mouse.y - this.y > 0){
+                this.x = this.x - 1;
+                this.y = this.y + 1;
+            }
+
         }else if(this.radius > this.minRadius){
             this.radius -= 1;
         }
@@ -93,8 +115,8 @@ function animate(){
 animate();
 
 window.addEventListener('mousemove', (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
+    mouse.x = e.x * dpi;
+    mouse.y = e.y * dpi;
 });
 
 window.addEventListener('resize', (e) => {
